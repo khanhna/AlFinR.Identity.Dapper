@@ -116,8 +116,6 @@ namespace AspNetCore.Identity.Dapper.SqlServer
         public UserStoreDapper(IServiceProvider serviceProvider, IdentityErrorDescriber describer = null) 
             : base(describer ?? new IdentityErrorDescriber())
         {
-            var typeUser = typeof(TUser);
-            var typeUserRole = typeof(TUser);
             _userRepository = serviceProvider.GetRequiredService<IIdentityUserDapperRepository<TUser, TKey>>();
             _userRoleRepository = serviceProvider.GetRequiredService<IIdentityUserRoleDapperRepository<TUser, TKey, TUserRole>>();
             _userLoginRepository = serviceProvider.GetRequiredService<IIdentityUserLoginDapperRepository<TUser, TKey, TUserLogin>>();
